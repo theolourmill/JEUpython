@@ -16,8 +16,8 @@ def actualiser_prix_machine():
     ajouter_machine()
     label_ressource_actuel.config(text=f"Vous avez {config.dict_ressource['ressource_actuelle']} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {config.dict_ressource['ressource_total']} ressource")
-    cout= cout_machine()
-    bouton_machine.config(text="Acheter, cout: {cout} ressources)")
+    cout = cout_machine()
+    bouton_machine.config(text=f"Acheter, coût : {cout} ressources")
 
 
 fenetre_jeu = tk.Tk()
@@ -34,8 +34,8 @@ label_ressource_total.pack()
 
 bouton_ressource = tk.Button(text="Produire une ressource", command=actualisation_ressource )
 bouton_ressource.pack(pady=10)
-
-bouton_machine = tk.Button(text="acheter une machine (cout :10)", command =actualiser_prix_machine)
+cout = cout_machine()
+bouton_machine = tk.Button(text=f"Acheter, coût : {cout} ressources", command =actualiser_prix_machine)
 bouton_machine.pack()
 actualiser_prod_machine()
 fenetre_jeu.mainloop()
