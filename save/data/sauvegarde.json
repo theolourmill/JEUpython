@@ -1,9 +1,9 @@
-dict_ressource = {
+{
     "ressource_actuelle": 0,
-    "ressource_total":0,
-    "machine":0,
+    "ressource_total": 0,
+    "machine": 0,
     "machinelv2": 0,
     "cout-base-machinelv2": 100,
     "cout-base-machine": 10,
-    "tick-rate":100,
+    "tick-rate": 100
 }
