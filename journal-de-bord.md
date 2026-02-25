@@ -8,3 +8,7 @@ préliminaires :
 2) cout exponentiel
 3) plusieurs niveau d'améliorations
 4) Systèmes de statistiques
+
+Pour l'interface visuelle (surtout au niveau de la cohérence des boutons),
+j'utiliserai la fonction .grid de tkinter, qui repose "presque" sur le même
+principe que les flexbox de CSS.
