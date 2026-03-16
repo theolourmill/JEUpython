@@ -1,0 +1,15 @@
+{
+    "ressource_actuelle": 1917.5958058057818,
+    "ressource_total": 49960.500000001455,
+    "machine": 18,
+    "machinelv2": 10,
+    "machinelv3": 4,
+    "machinelv4": 1,
+    "machinelv5": 1,
+    "cout-base-machinelv5": 20000,
+    "cout-base-machinelv4": 8500,
+    "cout-base-machinelv3": 1500,
+    "cout-base-machinelv2": 100,
+    "cout-base-machine": 10,
+    "tick-rate": 100
+}
