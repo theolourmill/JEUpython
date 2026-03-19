@@ -41,43 +41,43 @@ def actualiser_prod_machinelv5():
     fenetre_jeu.after(game.config.dict_ressource['tick-rate'], actualiser_prod_machine)
 
 def actualiser_prix_machine():
-    game.ajouter_machine()
+    game.ajouter_machine(1)
     label_nb_machine.config(text=f"Stock : {game.config.dict_ressource['machine']}" )
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
-    cout = game.cout_machine()
+    cout = game.cout_machine(1)
     bouton_machine.config(text=f"Machine, coût : {cout:.1f}")
 
 def actualiser_prix_machinelv2():
-    game.ajouter_machinelv2()
+    game.ajouter_machine(2)
     label_nb_machinelv2.config(text=f"Stock : {game.config.dict_ressource['machinelv2']}")
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
-    cout = game.cout_machinelv2()
+    cout = game.cout_machine(2)
     bouton_machinelv2.config(text=f"Machinelv2, coût: {cout:.1f}")
 
 def actualiser_prix_machinelv3():
-    game.ajouter_machinelv3()
+    game.ajouter_machine(3)
     label_nb_machinelv3.config(text=f"Stock : {game.config.dict_ressource['machinelv3']}")
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
-    cout = game.cout_machinelv3()
+    cout = game.cout_machine(3)
     bouton_machinelv3.config(text=f"Machinelv3, coût: {cout:.1f}")
 
 def actualiser_prix_machinelv4():
-    game.ajouter_machinelv4()
+    game.ajouter_machine(4)
     label_nb_machinelv4.config(text=f"Stock : {game.config.dict_ressource['machinelv4']}")
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
-    cout = game.cout_machinelv4()
+    cout = game.cout_machine(4)
     bouton_machinelv4.config(text=f"Machinelv4, coût: {cout:.1f}")
 
 def actualiser_prix_machinelv5():
-    game.ajouter_machinelv5()
+    game.ajouter_machine(5)
     label_nb_machinelv5.config(text=f"Stock : {game.config.dict_ressource['machinelv5']}")
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
     label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
-    cout = game.cout_machinelv5()
+    cout = game.cout_machine(5)
     bouton_machinelv5.config(text=f"Machinelv5, coût: {cout:.1f}")
 
 fenetre_jeu = tk.Tk()
@@ -101,35 +101,35 @@ bouton_ressource.grid(row=2, column=1, pady=20)
 
 #millieu :machine (À gauche)
 # On les met un peu plus haut (row 3 et 4)
-cout = game.cout_machine()
+cout = game.cout_machine(1)
 bouton_machine = tk.Button(fenetre_jeu, text=f"Machine, coût : {cout:.1f}", command=actualiser_prix_machine, width=25)
 bouton_machine.grid(row=3, column=0, pady=10, sticky="e") 
 
 label_nb_machine = tk.Label(fenetre_jeu, text=f"Stock : {game.config.dict_ressource['machine']}", font=("Arial", 10, "bold"))
 label_nb_machine.grid(row=3, column=1, sticky="w", padx=10)
 
-cout1 = game.cout_machinelv2()
+cout1 = game.cout_machine(2)
 bouton_machinelv2 = tk.Button(fenetre_jeu, text=f"Machinelv2, coût : {cout1:.1f}", command=actualiser_prix_machinelv2, width=25)
 bouton_machinelv2.grid(row=4, column=0, pady=10, sticky="e")
 
 label_nb_machinelv2 = tk.Label(fenetre_jeu, text=f"Stock : {game.config.dict_ressource['machinelv2']}", font=("Arial", 10, "bold"))
 label_nb_machinelv2.grid(row=4, column=1, sticky="w", padx=10)
 
-cout2 = game.cout_machinelv3()
+cout2 = game.cout_machine(3)
 bouton_machinelv3 = tk.Button(fenetre_jeu, text=f"Machinelv2, coût : {cout2:.1f}", command=actualiser_prix_machinelv3, width=25)
 bouton_machinelv3.grid(row=5, column=0, pady=10, sticky="e")
 
 label_nb_machinelv3 = tk.Label(fenetre_jeu, text=f"Stock : {game.config.dict_ressource['machinelv3']}", font=("Arial", 10, "bold"))
 label_nb_machinelv3.grid(row=5, column=1, sticky="w", padx=10)
 
-cout3 = game.cout_machinelv4()
+cout3 = game.cout_machine(4)
 bouton_machinelv4 = tk.Button(fenetre_jeu, text=f"Machinelv2, coût : {cout3:.1f}", command=actualiser_prix_machinelv4, width=25)
 bouton_machinelv4.grid(row=6, column=0, pady=10, sticky="e")
 
 label_nb_machinelv4 = tk.Label(fenetre_jeu, text=f"Stock : {game.config.dict_ressource['machinelv4']}", font=("Arial", 10, "bold"))
 label_nb_machinelv4.grid(row=6, column=1, sticky="w", padx=10)
 
-cout4 = game.cout_machinelv5()
+cout4 = game.cout_machine(5)
 bouton_machinelv5 = tk.Button(fenetre_jeu, text=f"Machinelv5, coût : {cout4:.1f}", command=actualiser_prix_machinelv5, width=25)
 bouton_machinelv5.grid(row=7, column=0, pady=10, sticky="e")
 

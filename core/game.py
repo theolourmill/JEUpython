@@ -6,67 +6,26 @@ import config
 #pour pouvoir parcourir les machines dans une boucle
 suffixes = ["", "lv2", "lv3", "lv4", "lv5"]
 
-def cout_machine():
-    cout= config.dict_ressource["cout-base-machine"]*1.3**config.dict_ressource['machine']
-    return cout
-def cout_machinelv2():
-    cout= config.dict_ressource["cout-base-machinelv2"]*1.35**config.dict_ressource['machinelv2']
-    return cout
-def cout_machinelv3():
-    cout= config.dict_ressource["cout-base-machinelv3"]*1.38**config.dict_ressource['machinelv3']
-    return cout 
-def cout_machinelv4():
-    cout= config.dict_ressource["cout-base-machinelv4"]*1.41**config.dict_ressource['machinelv4']
-    return cout
-def cout_machinelv5():
-    cout= config.dict_ressource["cout-base-machinelv5"]*1.44**config.dict_ressource['machinelv5']
-    return cout
-
 def ajouter_ressource():
     config.dict_ressource['ressource_actuelle']+=1
     config.dict_ressource['ressource_total']+=1
-    
-def ajouter_machine():
-    a= cout_machine()
-    print(a)
-    if config.dict_ressource['ressource_actuelle']<a :
-        pass
-    else :
-        config.dict_ressource['machine']+=1
-        config.dict_ressource['ressource_actuelle']-=a
 
-def ajouter_machinelv2():
-    a= cout_machinelv2()
-    print(a)
-    if config.dict_ressource['ressource_actuelle']<a :
-        pass
-    else :
-        config.dict_ressource['machinelv2']+=1
-        config.dict_ressource['ressource_actuelle']-=a
-def ajouter_machinelv3():
-    a= cout_machinelv3()
-    print(a)
-    if config.dict_ressource['ressource_actuelle']<a :
-        pass
-    else :
-        config.dict_ressource['machinelv3']+=1
-        config.dict_ressource['ressource_actuelle']-=a
-def ajouter_machinelv4():
-    a= cout_machinelv4()
-    print(a)
-    if config.dict_ressource['ressource_actuelle']<a :
-        pass
-    else :
-        config.dict_ressource['machinelv4']+=1
-        config.dict_ressource['ressource_actuelle']-=a
-def ajouter_machinelv5():
-    a= cout_machinelv5()
-    print(a)
-    if config.dict_ressource['ressource_actuelle']<a :
-        pass
-    else :
-        config.dict_ressource['machinelv5']+=1
-        config.dict_ressource['ressource_actuelle']-=a
+def ajouter_machine(niveau):
+    d = config.dict_ressource
+    s = suffixes[niveau - 1]
+    cout = cout_machine(niveau)
+    if d['ressource_actuelle'] >= cout:
+        d[f"machine{s}"] += 1  # ← corrigé
+        d['ressource_actuelle'] -= cout
+
+def cout_machine(niveau):
+    d = config.dict_ressource
+    s = suffixes[niveau - 1]
+    coef = f"multiplicateur_cout_machine{s}"
+    nb_machine = f"machine{s}"
+    cout_base = f"cout-base-machine{s}"  # tirets OK, ça correspond à config
+    cout = d[cout_base] * d[coef] ** d[nb_machine]
+    return cout
 
 def production_machine():
     prod_totale=0
