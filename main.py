@@ -5,6 +5,10 @@ from save.save_manager import charger, sauvegarder
 #charger la sauvegarde au début de la session
 game.config.dict_ressource = charger(game.config.dict_ressource)
 
+def compteur_temps():
+    game.compteur_temps_de_jeu()
+    fenetre_jeu.after(1000, compteur_temps)
+
 def actualisation_ressource():
     game.ajouter_ressource()
     label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
@@ -80,6 +84,13 @@ def actualiser_prix_machinelv5():
     cout = game.cout_machine(5)
     bouton_machinelv5.config(text=f"Machinelv5, coût: {cout:.1f}")
 
+def actualiser_prix_clic():
+    game.ajouter_clic()
+    label_ressource_actuel.config(text=f"Vous avez {game.config.dict_ressource['ressource_actuelle']:.1f} ressource")
+    label_ressource_total.config(text=f"Vous avez produit un total de  {game.config.dict_ressource['ressource_total']:.1f} ressource")
+    cout = game.cout_clic()
+    bouton_clic.config(text=f"Améliorer le clilck, cout {cout:.1f}")
+
 fenetre_jeu = tk.Tk()
 fenetre_jeu.state('zoomed')
 fenetre_jeu.title("Jeu")
@@ -136,6 +147,10 @@ bouton_machinelv5.grid(row=7, column=0, pady=10, sticky="e")
 label_nb_machinelv5 = tk.Label(fenetre_jeu, text=f"Stock : {game.config.dict_ressource['machinelv5']}", font=("Arial", 10, "bold"))
 label_nb_machinelv5.grid(row=7, column=1, sticky="w", padx=10)
 
+cout_clic= game.cout_clic()
+bouton_clic = tk.Button(fenetre_jeu, text=f"Améliorer le clilck, cout {cout_clic:.1}", command=actualiser_prix_clic)
+bouton_clic.grid(row=3, column=1)
+
 # On crée une ligne vide (row 5) pour placer sauvegarder
 fenetre_jeu.grid_rowconfigure(5, weight=1) 
 
@@ -143,6 +158,6 @@ fenetre_jeu.grid_rowconfigure(5, weight=1)
 bouton_sauvegarder = tk.Button(fenetre_jeu, text="SAUVEGARDER LA PARTIE", command=lambda: sauvegarder(game.config.dict_ressource), bg="lightblue", width=30)
 bouton_sauvegarder.grid(row=6, column=2, padx=30, pady=30, sticky="se")
 
-
 actualiser_prod_machine()
+compteur_temps()
 fenetre_jeu.mainloop()

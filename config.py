@@ -1,6 +1,17 @@
 dict_ressource = {
     "ressource_actuelle": 0,
     "ressource_total": 0,
+    "temps_de_jeu": 0,
+    "tick-rate": 100,
+    
+    "puissance_clic_base": 1,
+    "cout_base_puissance_clic": 100,
+    "multiplicateur_prix_puissance_clic":2.5,
+    "multiplicateur_du_clic": 2,
+    "nombre_amélioration_du_clic": 0,
+    "puissance_clic_total": 1,
+    "nombre_clic_total": 0,
+
 
     "machine": 0,
     "prod_base_machine": 0.3,
