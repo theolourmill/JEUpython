@@ -1,9 +1,11 @@
 import sys
 import os
 import time
+import config
+
 # Ajoute le dossier parent au chemin de recherche
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-import config
+
 #pour pouvoir parcourir les machines dans une boucle
 suffixes = ["", "lv2", "lv3", "lv4", "lv5"]
 
